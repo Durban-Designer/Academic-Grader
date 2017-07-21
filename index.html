@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <title>Academic Grader</title>
+  </head>
+  <style>
+    .box {
+      width: 60%;
+      height: 600px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+    }
+
+    .grade {
+      width: 50%;
+      height: 40px;
+    }
+
+    .submit {
+      width: 30%;
+      height: 40px;
+    }
+
+    .img {
+      margin-top: 20px;
+      width: auto;
+      height: 400px;
+    }
+  </style>
+  <body>
+    <center>
+    <div class="box">
+      <h2>Input points out of 100</h2>
+      <input type="number" class="grade" min="0" max="100" /><br/>
+      <button class="submit" onclick="grade()">Submit</button><br/>
+      <img src="images/grade.png" class="img" id="img" />
+    </div>
+  </center>
+  </body>
+  <script>
+    function grade() {
+      var x = $(".grade").val();
+      if (x > 100 || x < 0) {
+        alert("Incorrect input");
+      }
+      if (x >= 90) {
+        document.getElementById("img").src="images/gradeA.png";
+      }
+      if (x >= 80 && x < 90) {
+        document.getElementById("img").src="images/gradeB.png";
+      }
+      if (x >= 70 && x < 80) {
+        document.getElementById("img").src="images/gradeC.png";
+      }
+      if (x >= 65 && x < 70) {
+        document.getElementById("img").src="images/gradeD.png";
+      }
+      if (x < 65) {
+        document.getElementById("img").src="images/gradeF.png";
+      }
+    }
+  </script>
+</html>
